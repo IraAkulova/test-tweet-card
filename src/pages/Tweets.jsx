@@ -1,13 +1,13 @@
 import { useSelector, useDispatch } from "react-redux";
 import { getUsers } from '../redux/selectors';
 import { useEffect } from "react";
-import { fetchUsers } from "../redux/operations";
+import { fetchUsers, addFollower } from "../redux/operations";
 import css from '../styles/Tweets.module.css'
 
 const Tweets = () => {
     const dispatch = useDispatch();
     const cards = useSelector(getUsers);
-    const handleFollow = (id) => dispatch(followContact(id));
+    const handleFollow = (id) => dispatch(addFollower(id));
 
     useEffect(() => {
       dispatch(fetchUsers());
@@ -19,7 +19,8 @@ const Tweets = () => {
         <li key={card.id}>
           <div className={css.card}>
             <img alt="checkmark" src="../images/questionmark-checkmark.png" />
-            {card.user}
+            <h3>{card.tweets} Tweets</h3>
+            <h3>{card.followers} Follovers</h3>
             <button
               type="button"
               onClick={() => {

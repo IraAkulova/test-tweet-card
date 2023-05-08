@@ -16,17 +16,18 @@ export const fetchUsers = createAsyncThunk(
   }
 );
 
-// export const addContact = createAsyncThunk(
-//   "contacts/addContact",
-//   async ({ name, phone }, thunkAPI) => {
-//     try {
-//       const response = await axios.post("/contacts", { name, phone });
-//       return response.data;
-//     } catch (e) {
-//       return thunkAPI.rejectWithValue(e.message);
-//     }
-//   }
-// );
+export const addFollower = createAsyncThunk(
+  "users/addFollower",
+  async ({ followers }, thunkAPI) => {
+    try {
+      const response = await axios.post("/users", { followers });
+      console.log(response.data);
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
 
 // export const deleteContact = createAsyncThunk(
 //   "tasks/deleteTask",
