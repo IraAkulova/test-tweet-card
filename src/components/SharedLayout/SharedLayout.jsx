@@ -6,14 +6,16 @@ import Loader from "../Loader/Loader";
 const SharedLayout = () => {
   return (
     <div>
-      <nav className={css.navigation}>
-        <NavLink to="/" className={css.link}>
-          Home
-        </NavLink>
-        <NavLink to="/tweets" className={css.link}>
-          Tweets
-        </NavLink>
-      </nav>
+      <header>
+        <nav className={css.navigation}>
+          <NavLink to="/" className={css.link}>
+            Home
+          </NavLink>
+          <NavLink to="/tweets" className={css.link}>
+            Tweets
+          </NavLink>
+        </nav>
+      </header>
       <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>

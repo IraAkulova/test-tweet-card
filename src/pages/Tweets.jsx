@@ -16,32 +16,38 @@ const Tweets = () => {
     }, [dispatch]);
 
   return (
-    <ul className={css.grid}>
-      {cards.map((card) => (
-        <li key={card.id}>
-          <div className={css.card}>
-            <img alt="checkmark" src={background} className={css.background} />
-            <div className={css.line}></div>
-            <img
-              alt="default-avatar"
-              src={defaultAvatar}
-              className={css.circle}
-            />
-            <p className={css.text}>{card.tweets} Tweets</p>
-            <p className={css.text}>{card.followers} Follovers</p>
-            <button
-              className={css.button}
-              type="button"
-              onClick={() => {
-                handleFollow(card.id);
-              }}
-            >
-              Follow
-            </button>
-          </div>
-        </li>
-      ))}
-    </ul>
+    <main>
+      <ul className={css.grid}>
+        {cards.map((card) => (
+          <li key={card.id}>
+            <article className={css.card}>
+              <img
+                alt="checkmark"
+                src={background}
+                className={css.background}
+              />
+              <div className={css.line}></div>
+              <img
+                alt="default-avatar"
+                src={defaultAvatar}
+                className={css.circle}
+              />
+              <p className={css.text}>{card.tweets} Tweets</p>
+              <p className={css.text}>{card.followers} Follovers</p>
+              <button
+                className={css.button}
+                type="button"
+                onClick={() => {
+                  handleFollow(card.id);
+                }}
+              >
+                Follow
+              </button>
+            </article>
+          </li>
+        ))}
+      </ul>
+    </main>
   );
 };
 
