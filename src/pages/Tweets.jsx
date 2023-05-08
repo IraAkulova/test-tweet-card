@@ -9,7 +9,10 @@ import background from '../../src/assets/questionmark-checkmark.png'
 const Tweets = () => {
     const dispatch = useDispatch();
     const cards = useSelector(getUsers);
-    const handleFollow = (id) => dispatch(addFollower(id));
+  const handleFollow = id => {
+
+    return dispatch(addFollower(id));
+  };
 
     useEffect(() => {
       dispatch(fetchUsers());
@@ -32,10 +35,21 @@ const Tweets = () => {
                 src={defaultAvatar}
                 className={css.circle}
               />
-              <p className={css.text}>{card.tweets} Tweets</p>
-              <p className={css.text}>{card.followers} Follovers</p>
+              <p className={css.text}>
+                {card.tweets.toLocaleString("en-IN", {
+                  maximumSignificantDigits: 3,
+                })}{" "}
+                Tweets
+              </p>
+              <p className={css.text}>
+                {card.followers.toLocaleString("en-IN", {
+                  maximumSignificantDigits: 3,
+                })}{" "}
+                Follovers
+              </p>
               <button
                 className={css.button}
+                style={{backgroundColor: '#EBD8FF'}}
                 type="button"
                 onClick={() => {
                   handleFollow(card.id);
