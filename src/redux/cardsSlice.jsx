@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchUsers } from "./operations";
+import { fetchUsers, addFollower } from "./operations";
 
 const usersInitialState = {
   cards: [],
@@ -25,6 +25,11 @@ const cardsSlice = createSlice({
       state.isLoading = false;
       state.error = null;
       state.cards = action.payload;
+    },
+    [addFollower.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      console.log(action.payload);
     },
   },
 });

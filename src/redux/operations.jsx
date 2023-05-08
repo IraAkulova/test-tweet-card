@@ -18,11 +18,10 @@ export const fetchUsers = createAsyncThunk(
 
 export const addFollower = createAsyncThunk(
   "users/addFollower",
-  async ({ followers }, thunkAPI) => {
+  async (userId, thunkAPI) => {
     try {
-      const response = await axios.post("/users", { followers });
-      console.log(response.data);
-      return response.data;
+      const response = await axios.put(`/users/${userId}`);
+      return response.data.followers + 1;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
     }
