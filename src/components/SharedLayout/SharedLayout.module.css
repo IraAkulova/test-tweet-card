@@ -3,11 +3,11 @@
     gap: 30px;
     align-items: center;
     padding-left: 50px;
-    background-color: rgb(245, 245, 245);
     height: 50px;
     text-decoration: none;
-    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
+    background: linear-gradient(114.99deg, #471CA9 -0.99%, #5736A3 54.28%, #4B2A99 78.99%);
+    box-shadow: -2.5777px 6.87386px 20.6216px rgba(0, 0, 0, 0.23);
     font-size: large;
     font-weight: 700;
-    color: rgba(0, 0, 0, 0.7);
+    color: #EBD8FF;
 }
