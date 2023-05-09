@@ -3,15 +3,13 @@ import { fetchUsers, addFollower } from "./operations";
 
 const usersInitialState = {
   cards: [],
-  isLoading: false,
+  isFollowing: false,
   error: null,
 };
 
-const handlePending = (state) => {
-  state.isLoading = true;
-};
+
 const handleRejected = (state, action) => {
-  state.isLoading = false;
+  state.isFollowing = false;
   state.error = action.payload;
 };
 
@@ -19,7 +17,6 @@ const cardsSlice = createSlice({
   name: "users",
   initialState: usersInitialState,
   extraReducers: {
-    [fetchUsers.pending]: handlePending,
     [fetchUsers.rejected]: handleRejected,
     [fetchUsers.fulfilled](state, action) {
       state.isLoading = false;
@@ -27,9 +24,8 @@ const cardsSlice = createSlice({
       state.cards = action.payload;
     },
     [addFollower.fulfilled](state, action) {
-      state.isLoading = false;
       state.error = null;
-      console.log(action.payload);
+      state.isFollowing = true;
     },
   },
 });
