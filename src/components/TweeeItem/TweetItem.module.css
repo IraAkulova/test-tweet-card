@@ -1,9 +1,3 @@
-.grid{
-    margin: 48px;
-    display: flex;
-    gap: 48px;
-    flex-wrap: wrap;
-}
 .card{
     position: relative;
     display: flex;
