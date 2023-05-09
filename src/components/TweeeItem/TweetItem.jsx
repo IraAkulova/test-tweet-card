@@ -31,7 +31,9 @@ export const TweetItem = ({ card }) => {
     <article className={css.card}>
       <img alt="checkmark" src={background} className={css.background} />
       <div className={css.line}></div>
-      <img alt="default-avatar" src={defaultAvatar} className={css.circle} />
+      <div className={css.circle}>
+        <img alt="default-avatar" src={card.avatar} className={css.avatar} />
+      </div>
       <p className={css.text}>{card.tweets.toLocaleString("en-GB")} Tweets</p>
       <p className={css.text}>
         {card.followers.toLocaleString("en-GB")} Follovers
